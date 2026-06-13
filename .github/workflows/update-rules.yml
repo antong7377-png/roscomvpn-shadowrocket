@@ -1,0 +1,30 @@
+name: Update Rules from RoscomVPN
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone upstream
+        run: |
+          git clone --depth 1 https://github.com/hydraponique/roscomvpn-routing.git upstream
+
+      - name: Convert rules
+        run: python3 convert.py
+
+      - name: Copy config
+        run: cp upstream/HAPP/DEFAULT.JSON roscomvpn-happ.json || true
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add *.list ip-private.list
+          git diff --cached --quiet || git commit -m "Auto-update rules from roscomvpn-routing $(date +%Y-%m-%d)"
+          git push
