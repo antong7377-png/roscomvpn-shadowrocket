@@ -1,0 +1,18 @@
+DOMAIN-SUFFIX,gemini.google.com,PROXY
+DOMAIN-SUFFIX,bard.google.com,PROXY
+DOMAIN-SUFFIX,ai.google.dev,PROXY
+DOMAIN-SUFFIX,generativeai.google,PROXY
+DOMAIN-SUFFIX,makersuite.google.com,PROXY
+DOMAIN-SUFFIX,notebooklm.google,PROXY
+DOMAIN-SUFFIX,deepmind.com,PROXY
+DOMAIN-SUFFIX,deepmind.google,PROXY
+DOMAIN-SUFFIX,geller-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,generativelanguage.googleapis.com,PROXY
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,robinfrontend-pa.googleapis.com,PROXY
+DOMAIN-SUFFIX,ai.studio,PROXY
+DOMAIN-SUFFIX,gemini,cw
+DOMAIN-SUFFIX,openai.com,PROXY
+# Additional Google AI
+DOMAIN-SUFFIX,cloud.google.com,PROXY
+DOMAIN-SUFFIX,googleapis.com,PROXY

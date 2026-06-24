@@ -27,6 +27,7 @@ CATEGORIES = {
     'twitch': 'DIRECT',
     'pinterest': 'DIRECT',
     'faceit': 'DIRECT',
+    'gemini': 'PROXY',
     'private': 'DIRECT',
 }
 
