@@ -22,10 +22,13 @@ jobs:
       - name: Convert rules
         run: python3 convert.py
 
+      - name: Rebuild full config (rules + VLESS nodes)
+        run: python3 rebuild_full.py
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add *.list ip-private.list
+          git add *.list ip-private.list roscomvpn-full.conf
           git diff --cached --quiet || git commit -m "Auto-update rules from roscomvpn $(date +%Y-%m-%d)"
           git push
