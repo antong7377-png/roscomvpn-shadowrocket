@@ -19,10 +19,15 @@ SUB_URLS = {
 def fetch_node(name, url):
     try:
         req = urllib.request.Request(url)
-        ctx = __import__('ssl')._create_unverified_context()
-        data = urllib.request.urlopen(req, context=ctx, timeout=15).read()
+        data = urllib.request.urlopen(req, timeout=15).read()
         import base64
-        lines = base64.b64decode(data).decode().splitlines()
+        try:
+            lines = base64.b64decode(data).decode().splitlines()
+            if not any(l.startswith("vless://") for l in lines):
+                raise ValueError("not base64 vless")
+        except Exception:
+            # clean-sub-proxy returns plain-text vless links
+            lines = data.decode(errors="replace").splitlines()
         for line in lines:
             if line.startswith("vless://"):
                 # strip spx= + host= for Shadowrocket compat
