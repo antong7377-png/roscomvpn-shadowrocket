@@ -6,13 +6,14 @@ import urllib.request, urllib.parse, json, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 
-# Fetch current VLESS nodes from our subscription
+# Fetch current VLESS nodes from our CLEAN subscription proxy
+# (:2097 strips spx=/host= that 3x-ui injects and Shadowrocket rejects)
 SUB_URLS = {
-    "AVG-443":    "https://galyaev.ru:2096/sub/sqed0gateb1jjobw",
-    "AVG2-443":   "https://galyaev.ru:2096/sub/5t4gx9i7wg8j7zeu", 
-    "AVY-46791":  "https://galyaev.ru:2096/sub/u2zvf24ie77t9qzk",
-    "GRPC-2083":  "https://galyaev.ru:2096/sub/grpc5c59792b",
-    "XHTTP-2087": "https://galyaev.ru:2096/sub/xhttp5c59792",
+    "AVG-443":    "http://galyaev.ru:2097/sqed0gateb1jjobw",
+    "AVG2-443":   "http://galyaev.ru:2097/5t4gx9i7wg8j7zeu",
+    "AVY-46791":  "http://galyaev.ru:2097/u2zvf24ie77t9qzk",
+    "GRPC-2083":  "http://galyaev.ru:2097/grpc5c59792b",
+    "XHTTP-2087": "http://galyaev.ru:2097/xhttp5c59792",
 }
 
 def fetch_node(name, url):
