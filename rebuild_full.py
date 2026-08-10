@@ -54,7 +54,7 @@ with open(os.path.join(BASE, "roscomvpn.conf")) as f:
 # Replace [General] header info
 header = f"""#!name=RoscomVPN + Пульс (AVG/XHTTP)
 #!desc=VLESS Reality x5 + RoscomVPN split-tunneling | Auto-updated daily
-#!update-url=https://raw.githubusercontent.com/antong7377-png/roscomvpn-shadowrocket/main/roscomvpn-full.conf
+#!update-url=https://cdn.jsdelivr.net/gh/antong7377-png/roscomvpn-shadowrocket@main/roscomvpn-full.conf
 
 """
 
